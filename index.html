@@ -3,220 +3,328 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShopEase | E-Commerce Admin Dashboard</title>
+<title>ShopEase | Admin Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- ===================== TOP BAR (date/time + theme switch) ===================== -->
+<div class="top-utility-bar">
+  <span id="liveDateTime" class="live-datetime">--</span>
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+    <span class="toggle-icon">🌙</span> <span class="toggle-label">Dark mode</span>
+  </button>
+</div>
+
 <!-- ===================== HEADER ===================== -->
 <header class="main-header">
   <div class="logo-section">
-    <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="ShopEase Logo" class="logo">
+    <div class="tag-logo" aria-hidden="true">
+      <span class="tag-hole"></span>
+    </div>
     <div>
-      <h1>ShopEase</h1>
-      <p class="tagline">Your One-Stop Online Shopping Destination</p>
+      <h1>ShopEase<span class="dot">.</span></h1>
+      <p class="tagline">Price it right. Ship it fast.</p>
     </div>
   </div>
   <div class="student-info">
-    <p><strong>Student Name:</strong> Chitra Devi R</p>
-    <p><strong>Register No:</strong> 71762307201</p>
+    <p><strong>Student:</strong> Chitra Devi R</p>
+    <p><strong>Reg. No:</strong> 71762307201</p>
   </div>
 </header>
+
 <!-- ===================== NAVIGATION BAR ===================== -->
 <nav class="navbar">
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#dashboard">Dashboard</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#reports">Reports</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#logout">Logout</a></li>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+  <ul id="navList">
+    <li><a href="#home" class="nav-link active">Home</a></li>
+    <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+    <li><a href="#features" class="nav-link">Features</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#reports" class="nav-link">Reports</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+    <li><a href="#logout" class="nav-link nav-logout">Logout</a></li>
   </ul>
 </nav>
 
-<!-- ===================== WELCOME SECTION ===================== -->
-<section id="home" class="welcome-section">
-  <h2>Welcome to ShopEase Admin Panel</h2>
-  <p class="project-desc">
-    ShopEase is an online e-commerce platform that connects sellers and customers through a simple,
-    secure, and fast shopping experience. This admin dashboard allows the store owner to manage users,
-    products, orders, and revenue from a single control panel.
-  </p>
-  <div class="vision-mission">
-    <div class="box">
-      <h3>Our Vision</h3>
-      <p>To become the most trusted and customer-friendly online shopping platform in the region.</p>
+<!-- ===================== NOTIFICATION PANEL ===================== -->
+<div class="notification-wrapper">
+  <button id="notifyBtn" class="notify-btn" aria-label="Toggle notifications">
+    🔔 <span id="notifyCount" class="notify-count">27</span>
+  </button>
+  <div id="notifyPanel" class="notify-panel hidden">
+    <div class="notify-head">
+      <h4>Notifications</h4>
+      <button id="notifyClose" aria-label="Close notifications">✕</button>
     </div>
-    <div class="box">
-      <h3>Our Mission</h3>
-      <p>To deliver quality products, fast delivery, and excellent customer service through smart technology.</p>
+    <ul class="notify-list">
+      <li><span class="dot-warn"></span> Low stock: Wireless Earbuds (12 left)</li>
+      <li><span class="dot-ok"></span> Order #58231 marked as delivered</li>
+      <li><span class="dot-warn"></span> 3 refund requests awaiting approval</li>
+      <li><span class="dot-ok"></span> New seller application received</li>
+      <li><span class="dot-warn"></span> Payment gateway maintenance at 2 AM</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===================== WELCOME / HERO SECTION ===================== -->
+<section id="home" class="welcome-section">
+  <div class="welcome-inner">
+    <p class="eyebrow fade-in">ADMIN CONTROL PANEL</p>
+    <h2 class="slide-in">Every sale, every stock line,<br>one dashboard.</h2>
+    <p class="project-desc fade-in-delay">
+      ShopEase connects sellers and customers through a simple, secure, and fast shopping
+      experience. This admin panel lets the store owner manage users, products, orders and
+      revenue &mdash; all from one screen.
+    </p>
+    <div class="vision-mission">
+      <div class="box tag-card fade-in-delay">
+        <span class="tag-hole small"></span>
+        <h3>Our Vision</h3>
+        <p>To become the most trusted, customer-friendly online shopping platform in the region.</p>
+      </div>
+      <div class="box tag-card fade-in-delay-2">
+        <span class="tag-hole small"></span>
+        <h3>Our Mission</h3>
+        <p>To deliver quality products, fast delivery and genuinely helpful support through smart technology.</p>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- ===================== IMAGE / BANNER SLIDER ===================== -->
+<section class="slider-section">
+  <div class="slider" id="slider">
+    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&w=1200&q=60')">
+      <div class="slide-caption"><h3>Mega Electronics Sale</h3><p>Flat 50% off, this week only</p></div>
+    </div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=60')">
+      <div class="slide-caption"><h3>Free Delivery ₹499+</h3><p>Across every category, every day</p></div>
+    </div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=60')">
+      <div class="slide-caption"><h3>Same-Day Delivery</h3><p>Now live in select cities</p></div>
+    </div>
+  </div>
+  <button class="slider-arrow prev" id="prevSlide" aria-label="Previous slide">&#10094;</button>
+  <button class="slider-arrow next" id="nextSlide" aria-label="Next slide">&#10095;</button>
+  <div class="slider-dots" id="sliderDots"></div>
 </section>
 
 <!-- ===================== DASHBOARD STATISTICS ===================== -->
 <section id="dashboard" class="stats-section">
-  <h2>Dashboard Statistics</h2>
+  <h2 class="section-title"><span class="section-index">01</span> Dashboard Statistics</h2>
   <div class="stats-grid">
-    <div class="stat-card">
-      <h3>12,540</h3>
+    <div class="stat-card tag-card">
+      <span class="tag-hole small"></span>
+      <span class="stat-icon">👥</span>
+      <h3 class="counter" data-target="12540">0</h3>
       <p>Total Users</p>
     </div>
-    <div class="stat-card">
-      <h3>3,215</h3>
+    <div class="stat-card tag-card">
+      <span class="tag-hole small"></span>
+      <span class="stat-icon">🟢</span>
+      <h3 class="counter" data-target="3215">0</h3>
       <p>Active Users</p>
     </div>
-    <div class="stat-card">
-      <h3>₹8,45,000</h3>
+    <div class="stat-card tag-card">
+      <span class="tag-hole small"></span>
+      <span class="stat-icon">₹</span>
+      <h3 class="counter" data-target="845000" data-prefix="₹">0</h3>
       <p>Revenue</p>
     </div>
-    <div class="stat-card">
-      <h3>5,720</h3>
+    <div class="stat-card tag-card">
+      <span class="tag-hole small"></span>
+      <span class="stat-icon">🧾</span>
+      <h3 class="counter" data-target="5720">0</h3>
       <p>Transactions</p>
     </div>
-    <div class="stat-card">
-      <h3>27</h3>
+    <div class="stat-card tag-card">
+      <span class="tag-hole small"></span>
+      <span class="stat-icon">🔔</span>
+      <h3 class="counter" data-target="27">0</h3>
       <p>Notifications</p>
     </div>
-    <div class="stat-card">
-      <h3>14</h3>
+    <div class="stat-card tag-card">
+      <span class="tag-hole small"></span>
+      <span class="stat-icon">⏳</span>
+      <h3 class="counter" data-target="14">0</h3>
       <p>Pending Tasks</p>
     </div>
+  </div>
+
+  <div class="progress-block">
+    <h4>Monthly Sales Target</h4>
+    <div class="progress-bar"><div class="progress-fill" data-percent="72"></div></div>
+    <div class="progress-bar"><span class="progress-label">Order Fulfilment</span><div class="progress-fill" data-percent="88"></div></div>
+    <div class="progress-bar"><span class="progress-label">Customer Satisfaction</span><div class="progress-fill" data-percent="94"></div></div>
   </div>
 </section>
 
 <!-- ===================== FEATURES SECTION ===================== -->
-<section class="features-section">
-  <h2>Features</h2>
-  <ul>
-    <li>Secure User Login and Registration</li>
-    <li>Real-Time Order Tracking</li>
-    <li>Multiple Payment Gateway Support</li>
-    <li>Product Wishlist and Cart Management</li>
-    <li>Personalized Product Recommendations</li>
-    <li>24/7 Customer Support Chat</li>
-  </ul>
+<section id="features" class="features-section">
+  <h2 class="section-title"><span class="section-index">02</span> Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <span class="feature-icon spin-icon">🔐</span>
+      <h4>Secure Login</h4>
+      <p>Encrypted registration and authentication for every account.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📍</span>
+      <h4>Live Order Tracking</h4>
+      <p>Real-time status from warehouse to doorstep.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💳</span>
+      <h4>Multiple Payment Modes</h4>
+      <p>Cards, UPI and wallets, all in one checkout.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">❤️</span>
+      <h4>Wishlist &amp; Cart</h4>
+      <p>Save it now, buy it whenever you're ready.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🎯</span>
+      <h4>Personalised Picks</h4>
+      <p>Recommendations tuned to browsing history.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💬</span>
+      <h4>24/7 Support Chat</h4>
+      <p>A real answer, any hour of the day.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ===================== SERVICES SECTION ===================== -->
 <section id="services" class="services-section">
-  <h2>Services</h2>
-  <ol>
-    <li>Product Listing and Catalog Management</li>
-    <li>Order Processing and Delivery Tracking</li>
-    <li>Payment and Refund Management</li>
-    <li>Customer Support and Ticket Handling</li>
-    <li>Seller Onboarding and Verification</li>
-  </ol>
+  <h2 class="section-title"><span class="section-index">03</span> Services</h2>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-num">01</span><h4>Catalog Management</h4><p>Product listing and category upkeep.</p></div>
+    <div class="service-card"><span class="service-num">02</span><h4>Order Processing</h4><p>From placement through to delivery.</p></div>
+    <div class="service-card"><span class="service-num">03</span><h4>Payments &amp; Refunds</h4><p>Transaction history, refunds handled cleanly.</p></div>
+    <div class="service-card"><span class="service-num">04</span><h4>Support Tickets</h4><p>Customer queries tracked to resolution.</p></div>
+    <div class="service-card"><span class="service-num">05</span><h4>Seller Onboarding</h4><p>Verification and setup for new sellers.</p></div>
+  </div>
 </section>
 
-<!-- ===================== LATEST UPDATES ===================== -->
+<!-- ===================== LATEST UPDATES (typing effect) ===================== -->
 <section class="updates-section">
-  <h2>Latest Updates</h2>
-  <marquee behavior="scroll" direction="left" scrollamount="6">
-    🎉 New Year Mega Sale - Flat 50% Off on Electronics!  |  🚚 Free Delivery on Orders Above ₹499!  |  📦 Same Day Delivery Now Available in Selected Cities!  |  💳 New UPI Cashback Offers Live Now!
-  </marquee>
+  <h2 class="section-title"><span class="section-index">04</span> Latest Updates</h2>
+  <p class="typing-line"><span id="typingText"></span><span class="cursor">|</span></p>
 </section>
 
 <!-- ===================== REGISTRATION FORM ===================== -->
 <section class="form-section">
-  <h2>Customer Registration Form</h2>
-  <form action="#" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" placeholder="Enter your full name" required><br><br>
+  <h2 class="section-title"><span class="section-index">05</span> Customer Registration</h2>
+  <form id="regForm" class="reg-form" novalidate>
+    <div class="form-row">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name">
+      <span class="error-msg" id="err-name"></span>
+    </div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+    <div class="form-row">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+      <span class="error-msg" id="err-email"></span>
+    </div>
 
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required><br><br>
+    <div class="form-row">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="10-digit phone number">
+      <span class="error-msg" id="err-phone"></span>
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" placeholder="Enter a password" required><br><br>
+    <div class="form-row">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="At least 6 characters">
+      <span class="error-msg" id="err-password"></span>
+    </div>
 
-    <label>Gender:</label>
-    <input type="radio" id="male" name="gender" value="male">
-    <label for="male">Male</label>
-    <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label>
-    <input type="radio" id="other" name="gender" value="other">
-    <label for="other">Other</label><br><br>
+    <div class="form-row">
+      <label>Gender</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+      </div>
+      <span class="error-msg" id="err-gender"></span>
+    </div>
 
-    <label for="dob">Date of Birth:</label>
-    <input type="date" id="dob" name="dob"><br><br>
+    <div class="form-row">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob">
+      <span class="error-msg" id="err-dob"></span>
+    </div>
 
-    <label for="address">Address:</label><br>
-    <textarea id="address" name="address" rows="4" cols="40" placeholder="Enter your address"></textarea><br><br>
+    <div class="form-row full">
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="4" placeholder="Enter your address"></textarea>
+      <span class="error-msg" id="err-address"></span>
+    </div>
 
-    <button type="submit">Submit</button>
-    <button type="reset">Reset</button>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-ghost" id="resetBtn">Reset</button>
+    </div>
+    <p class="form-success hidden" id="formSuccess">Registration successful. Welcome to ShopEase!</p>
   </form>
 </section>
 
 <!-- ===================== APPLICATION MODULES TABLE ===================== -->
 <section id="reports" class="modules-section">
-  <h2>Application Modules</h2>
-  <table border="1" cellpadding="10" cellspacing="0">
-    <tr>
-      <th>Module ID</th>
-      <th>Module Name</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td>M01</td>
-      <td>User Management</td>
-      <td>Handles customer registration, login, and profile management.</td>
-    </tr>
-    <tr>
-      <td>M02</td>
-      <td>Product Catalog</td>
-      <td>Manages product listings, categories, and inventory.</td>
-    </tr>
-    <tr>
-      <td>M03</td>
-      <td>Order Management</td>
-      <td>Tracks orders from placement to delivery.</td>
-    </tr>
-    <tr>
-      <td>M04</td>
-      <td>Payment Gateway</td>
-      <td>Processes payments, refunds, and transaction history.</td>
-    </tr>
-    <tr>
-      <td>M05</td>
-      <td>Reports & Analytics</td>
-      <td>Generates sales reports and business insights.</td>
-    </tr>
-  </table>
+  <h2 class="section-title"><span class="section-index">06</span> Application Modules</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Module</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>M01</td><td>User Management</td><td>Handles registration, login and profiles.</td></tr>
+        <tr><td>M02</td><td>Product Catalog</td><td>Manages listings, categories and inventory.</td></tr>
+        <tr><td>M03</td><td>Order Management</td><td>Tracks orders from placement to delivery.</td></tr>
+        <tr><td>M04</td><td>Payment Gateway</td><td>Processes payments, refunds and history.</td></tr>
+        <tr><td>M05</td><td>Reports &amp; Analytics</td><td>Generates sales reports and insights.</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- ===================== CONTACT INFORMATION ===================== -->
 <section id="contact" class="contact-section">
-  <h2>Contact Information</h2>
-  <p><strong>Email:</strong> support@shopease.com</p>
-  <p><strong>Phone:</strong> +91 98765 43210</p>
-  <p><strong>Address:</strong> No. 12, Anna Salai, Chennai, Tamil Nadu, India</p>
-  <p><strong>Follow Us:</strong>
-    <a href="#" target="_blank">Facebook</a> |
-    <a href="#" target="_blank">Instagram</a> |
-    <a href="#" target="_blank">Twitter</a> |
-    <a href="#" target="_blank">LinkedIn</a>
-  </p>
-</section>
-
-<!-- ===================== ABOUT ===================== -->
-<section id="about" class="about-section">
-  <h2>About ShopEase</h2>
-  <p>ShopEase was created as an academic full-stack project to demonstrate a real-world e-commerce
-  admin dashboard, covering front-end design, deployment, and version control practices used in the industry.</p>
+  <h2 class="section-title"><span class="section-index">07</span> Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-item"><span>📧</span><p>support@shopease.com</p></div>
+    <div class="contact-item"><span>📞</span><p>+91 98765 43210</p></div>
+    <div class="contact-item"><span>📍</span><p>No. 12, Anna Salai, Chennai, Tamil Nadu, India</p></div>
+  </div>
+  <div class="social-links">
+    <a href="#" aria-label="Facebook">Facebook</a>
+    <a href="#" aria-label="Instagram">Instagram</a>
+    <a href="#" aria-label="Twitter">Twitter</a>
+    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+  </div>
 </section>
 
 <!-- ===================== FOOTER ===================== -->
 <footer id="logout" class="main-footer">
-  <p>&copy; 2026 ShopEase. All Rights Reserved.</p>
-  <p>Designed by Chitra devi</p>
+  <p>&copy; 2026 ShopEase &mdash; Admin Dashboard Project</p>
+  <p>Built by Chitra Devi R &middot; Reg. No. 71762307201</p>
+  <div class="social-links footer-social">
+    <a href="#" aria-label="Facebook">FB</a>
+    <a href="#" aria-label="Instagram">IG</a>
+    <a href="#" aria-label="Twitter">TW</a>
+    <a href="#" aria-label="LinkedIn">IN</a>
+  </div>
 </footer>
 
+<!-- ===================== SCROLL TO TOP ===================== -->
+<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to top">↑</button>
+
+<script src="script.js"></script>
 </body>
 </html>
