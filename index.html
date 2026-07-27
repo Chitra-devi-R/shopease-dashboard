@@ -22,6 +22,12 @@
     <p><strong>Register No:</strong> 71762307201</p>
   </div>
 </header>
+
+<!-- ===================== DATE & TIME DISPLAY ===================== -->
+<div class="datetime-bar">
+  <p id="dateTimeDisplay">Loading date & time...</p>
+</div>
+
 <!-- ===================== NAVIGATION BAR ===================== -->
 <nav class="navbar">
   <ul>
@@ -217,6 +223,25 @@
   <p>&copy; 2026 ShopEase. All Rights Reserved.</p>
   <p>Designed by Chitra devi</p>
 </footer>
+
+<!-- ===================== DATE & TIME SCRIPT ===================== -->
+<script>
+  function updateDateTime() {
+    const now = new Date();
+
+    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateStr = now.toLocaleDateString('en-US', dateOptions);
+    const timeStr = now.toLocaleTimeString('en-US');
+
+    document.getElementById('dateTimeDisplay').textContent = dateStr + '  |  ' + timeStr;
+  }
+
+  // Run once immediately so there's no delay before the first update
+  updateDateTime();
+
+  // Then update every second
+  setInterval(updateDateTime, 1000);
+</script>
 
 </body>
 </html>
