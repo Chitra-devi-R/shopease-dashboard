@@ -8,8 +8,6 @@
 body {
   background-color: #f4f6f9;
   color: #222;
-
-  <script src="script.js"></script>
 }
 
 /* HEADER */
@@ -46,6 +44,18 @@ body {
 .student-info {
   font-size: 14px;
   text-align: right;
+}
+
+/* DATE & TIME BAR */
+.datetime-bar {
+  background-color: #283593;
+  color: #fff;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 /* NAVBAR */
