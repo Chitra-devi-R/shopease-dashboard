@@ -23,42 +23,80 @@
   </div>
 </header>
 
-<!-- ===================== DATE & TIME DISPLAY ===================== -->
+<!-- ===================== DATE & TIME + THEME SWITCHER ===================== -->
 <div class="datetime-bar">
-  <p id="dateTimeDisplay">Loading date & time...</p>
+  <p id="dateTimeDisplay">Loading date &amp; time...</p>
+  <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
 </div>
 
 <!-- ===================== NAVIGATION BAR ===================== -->
 <nav class="navbar">
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#dashboard">Dashboard</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#reports">Reports</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#logout">Logout</a></li>
+  <button id="navToggle" class="nav-toggle">&#9776;</button>
+  <ul id="navList">
+    <li><a href="#home" class="nav-link active">Home</a></li>
+    <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+    <li><a href="#features" class="nav-link">Features</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#reports" class="nav-link">Reports</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+    <li><a href="#logout" class="nav-link">Logout</a></li>
   </ul>
 </nav>
 
+<!-- ===================== NOTIFICATION PANEL ===================== -->
+<div class="notification-wrapper">
+  <button id="notifyBtn" class="notify-btn">🔔 <span id="notifyCount" class="notify-count">27</span></button>
+  <div id="notifyPanel" class="notify-panel hidden">
+    <div class="notify-head">
+      <h4>Notifications</h4>
+      <button id="notifyClose">&times;</button>
+    </div>
+    <ul class="notify-list">
+      <li><span class="dot-warn"></span> Low stock: Wireless Earbuds (12 left)</li>
+      <li><span class="dot-ok"></span> Order #58231 marked as delivered</li>
+      <li><span class="dot-warn"></span> 3 refund requests awaiting approval</li>
+      <li><span class="dot-ok"></span> New seller application received</li>
+      <li><span class="dot-warn"></span> Payment gateway maintenance at 2 AM</li>
+    </ul>
+  </div>
+</div>
+
 <!-- ===================== WELCOME SECTION ===================== -->
 <section id="home" class="welcome-section">
-  <h2>Welcome to ShopEase Admin Panel</h2>
-  <p class="project-desc">
+  <h2 class="fade-in">Welcome to ShopEase Admin Panel</h2>
+  <p class="project-desc slide-in">
     ShopEase is an online e-commerce platform that connects sellers and customers through a simple,
     secure, and fast shopping experience. This admin dashboard allows the store owner to manage users,
     products, orders, and revenue from a single control panel.
   </p>
   <div class="vision-mission">
-    <div class="box">
+    <div class="box fade-in-delay">
       <h3>Our Vision</h3>
       <p>To become the most trusted and customer-friendly online shopping platform in the region.</p>
     </div>
-    <div class="box">
+    <div class="box fade-in-delay-2">
       <h3>Our Mission</h3>
       <p>To deliver quality products, fast delivery, and excellent customer service through smart technology.</p>
     </div>
   </div>
+</section>
+
+<!-- ===================== IMAGE / BANNER SLIDER ===================== -->
+<section class="slider-section">
+  <div class="slider" id="slider">
+    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&w=1200&q=60')">
+      <div class="slide-caption"><h3>Mega Electronics Sale</h3><p>Flat 50% off, this week only</p></div>
+    </div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=60')">
+      <div class="slide-caption"><h3>Free Delivery ₹499+</h3><p>Across every category, every day</p></div>
+    </div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=60')">
+      <div class="slide-caption"><h3>Same-Day Delivery</h3><p>Now live in select cities</p></div>
+    </div>
+  </div>
+  <button class="slider-arrow prev" id="prevSlide">&#10094;</button>
+  <button class="slider-arrow next" id="nextSlide">&#10095;</button>
+  <div class="slider-dots" id="sliderDots"></div>
 </section>
 
 <!-- ===================== DASHBOARD STATISTICS ===================== -->
@@ -66,97 +104,142 @@
   <h2>Dashboard Statistics</h2>
   <div class="stats-grid">
     <div class="stat-card">
-      <h3>12,540</h3>
+      <span class="stat-icon">👥</span>
+      <h3 class="counter" data-target="12540">0</h3>
       <p>Total Users</p>
     </div>
     <div class="stat-card">
-      <h3>3,215</h3>
+      <span class="stat-icon">🟢</span>
+      <h3 class="counter" data-target="3215">0</h3>
       <p>Active Users</p>
     </div>
     <div class="stat-card">
-      <h3>₹8,45,000</h3>
+      <span class="stat-icon">₹</span>
+      <h3 class="counter" data-target="845000" data-prefix="₹">0</h3>
       <p>Revenue</p>
     </div>
     <div class="stat-card">
-      <h3>5,720</h3>
+      <span class="stat-icon">🧾</span>
+      <h3 class="counter" data-target="5720">0</h3>
       <p>Transactions</p>
     </div>
     <div class="stat-card">
-      <h3>27</h3>
+      <span class="stat-icon">🔔</span>
+      <h3 class="counter" data-target="27">0</h3>
       <p>Notifications</p>
     </div>
     <div class="stat-card">
-      <h3>14</h3>
+      <span class="stat-icon">⏳</span>
+      <h3 class="counter" data-target="14">0</h3>
       <p>Pending Tasks</p>
     </div>
+  </div>
+
+  <div class="progress-block">
+    <h4>Monthly Sales Target</h4>
+    <div class="progress-bar"><div class="progress-fill" data-percent="72">72%</div></div>
+    <h4>Order Fulfilment</h4>
+    <div class="progress-bar"><div class="progress-fill" data-percent="88">88%</div></div>
+    <h4>Customer Satisfaction</h4>
+    <div class="progress-bar"><div class="progress-fill" data-percent="94">94%</div></div>
   </div>
 </section>
 
 <!-- ===================== FEATURES SECTION ===================== -->
-<section class="features-section">
+<section id="features" class="features-section">
   <h2>Features</h2>
-  <ul>
-    <li>Secure User Login and Registration</li>
-    <li>Real-Time Order Tracking</li>
-    <li>Multiple Payment Gateway Support</li>
-    <li>Product Wishlist and Cart Management</li>
-    <li>Personalized Product Recommendations</li>
-    <li>24/7 Customer Support Chat</li>
-  </ul>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <span class="feature-icon spin-icon">🔐</span>
+      <h4>Secure Login &amp; Registration</h4>
+      <p>Encrypted accounts, protected from the first sign-up.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📍</span>
+      <h4>Real-Time Order Tracking</h4>
+      <p>Live status from warehouse to doorstep.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💳</span>
+      <h4>Multiple Payment Gateways</h4>
+      <p>Cards, UPI and wallets, all in one checkout.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">❤️</span>
+      <h4>Wishlist &amp; Cart Management</h4>
+      <p>Save it now, buy it whenever you're ready.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🎯</span>
+      <h4>Personalized Recommendations</h4>
+      <p>Product picks tuned to browsing history.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💬</span>
+      <h4>24/7 Customer Support Chat</h4>
+      <p>A real answer, any hour of the day.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ===================== SERVICES SECTION ===================== -->
 <section id="services" class="services-section">
   <h2>Services</h2>
-  <ol>
-    <li>Product Listing and Catalog Management</li>
-    <li>Order Processing and Delivery Tracking</li>
-    <li>Payment and Refund Management</li>
-    <li>Customer Support and Ticket Handling</li>
-    <li>Seller Onboarding and Verification</li>
-  </ol>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-num">01</span><h4>Product Listing &amp; Catalog Management</h4><p>Listings, categories and inventory in one place.</p></div>
+    <div class="service-card"><span class="service-num">02</span><h4>Order Processing &amp; Delivery Tracking</h4><p>From placement through to final delivery.</p></div>
+    <div class="service-card"><span class="service-num">03</span><h4>Payment &amp; Refund Management</h4><p>Transaction history and refunds, handled cleanly.</p></div>
+    <div class="service-card"><span class="service-num">04</span><h4>Customer Support &amp; Ticket Handling</h4><p>Every query tracked through to resolution.</p></div>
+    <div class="service-card"><span class="service-num">05</span><h4>Seller Onboarding &amp; Verification</h4><p>Setup and verification for new sellers.</p></div>
+  </div>
 </section>
 
-<!-- ===================== LATEST UPDATES ===================== -->
+<!-- ===================== LATEST UPDATES (typing effect) ===================== -->
 <section class="updates-section">
   <h2>Latest Updates</h2>
-  <marquee behavior="scroll" direction="left" scrollamount="6">
-    🎉 New Year Mega Sale - Flat 50% Off on Electronics!  |  🚚 Free Delivery on Orders Above ₹499!  |  📦 Same Day Delivery Now Available in Selected Cities!  |  💳 New UPI Cashback Offers Live Now!
-  </marquee>
+  <p class="typing-line"><span id="typingText"></span><span class="cursor">|</span></p>
 </section>
 
 <!-- ===================== REGISTRATION FORM ===================== -->
 <section class="form-section">
   <h2>Customer Registration Form</h2>
-  <form action="#" method="post">
+  <form id="regForm" novalidate>
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" placeholder="Enter your full name" required><br><br>
+    <input type="text" id="name" name="name" placeholder="Enter your full name">
+    <span class="error-msg" id="err-name"></span><br><br>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+    <input type="email" id="email" name="email" placeholder="Enter your email">
+    <span class="error-msg" id="err-email"></span><br><br>
 
     <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required><br><br>
+    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+    <span class="error-msg" id="err-phone"></span><br><br>
 
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" placeholder="Enter a password" required><br><br>
+    <input type="password" id="password" name="password" placeholder="Enter a password">
+    <span class="error-msg" id="err-password"></span><br><br>
 
-    <label>Gender:</label>
+    <label>Gender:</label><br>
     <input type="radio" id="male" name="gender" value="male">
     <label for="male">Male</label>
     <input type="radio" id="female" name="gender" value="female">
     <label for="female">Female</label>
     <input type="radio" id="other" name="gender" value="other">
-    <label for="other">Other</label><br><br>
+    <label for="other">Other</label>
+    <span class="error-msg" id="err-gender"></span><br><br>
 
     <label for="dob">Date of Birth:</label>
-    <input type="date" id="dob" name="dob"><br><br>
+    <input type="date" id="dob" name="dob">
+    <span class="error-msg" id="err-dob"></span><br><br>
 
     <label for="address">Address:</label><br>
-    <textarea id="address" name="address" rows="4" cols="40" placeholder="Enter your address"></textarea><br><br>
+    <textarea id="address" name="address" rows="4" cols="40" placeholder="Enter your address"></textarea>
+    <span class="error-msg" id="err-address"></span><br><br>
 
     <button type="submit">Submit</button>
-    <button type="reset">Reset</button>
+    <button type="reset" id="resetBtn">Reset</button>
+    <p class="form-success hidden" id="formSuccess">✅ Registration successful. Welcome to ShopEase!</p>
   </form>
 </section>
 
@@ -191,7 +274,7 @@
     </tr>
     <tr>
       <td>M05</td>
-      <td>Reports & Analytics</td>
+      <td>Reports &amp; Analytics</td>
       <td>Generates sales reports and business insights.</td>
     </tr>
   </table>
@@ -203,12 +286,13 @@
   <p><strong>Email:</strong> support@shopease.com</p>
   <p><strong>Phone:</strong> +91 98765 43210</p>
   <p><strong>Address:</strong> No. 12, Anna Salai, Chennai, Tamil Nadu, India</p>
-  <p><strong>Follow Us:</strong>
-    <a href="#" target="_blank">Facebook</a> |
-    <a href="#" target="_blank">Instagram</a> |
-    <a href="#" target="_blank">Twitter</a> |
+  <p><strong>Follow Us:</strong></p>
+  <div class="social-links">
+    <a href="#" target="_blank">Facebook</a>
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">Twitter</a>
     <a href="#" target="_blank">LinkedIn</a>
-  </p>
+  </div>
 </section>
 
 <!-- ===================== ABOUT ===================== -->
@@ -221,27 +305,18 @@
 <!-- ===================== FOOTER ===================== -->
 <footer id="logout" class="main-footer">
   <p>&copy; 2026 ShopEase. All Rights Reserved.</p>
-  <p>Designed by Chitra devi</p>
+  <p>Designed by Chitra Devi R &middot; Reg. No. 71762307201</p>
+  <div class="social-links footer-social">
+    <a href="#" target="_blank">FB</a>
+    <a href="#" target="_blank">IG</a>
+    <a href="#" target="_blank">TW</a>
+    <a href="#" target="_blank">IN</a>
+  </div>
 </footer>
 
-<!-- ===================== DATE & TIME SCRIPT ===================== -->
-<script>
-  function updateDateTime() {
-    const now = new Date();
+<!-- ===================== SCROLL TO TOP ===================== -->
+<button id="scrollTopBtn" class="scroll-top-btn">↑</button>
 
-    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const dateStr = now.toLocaleDateString('en-US', dateOptions);
-    const timeStr = now.toLocaleTimeString('en-US');
-
-    document.getElementById('dateTimeDisplay').textContent = dateStr + '  |  ' + timeStr;
-  }
-
-  // Run once immediately so there's no delay before the first update
-  updateDateTime();
-
-  // Then update every second
-  setInterval(updateDateTime, 1000);
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
